@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "DontDie (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "DontDie (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}

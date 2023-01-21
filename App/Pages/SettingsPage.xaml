@@ -1,0 +1,38 @@
+<Page
+    x:Class="DontDie.Pages.SettingsPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:DontDie.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid RowSpacing="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60" /> <!-- 0.txtBoxUrl -->
+            <RowDefinition Height="auto" /> <!-- 1.txtBoxUrl.validator -->
+            <RowDefinition Height="100"/> <!-- 2.txtBoxToken -->
+            <RowDefinition Height="auto"/>  <!-- 3.txtBoxToken.validator -->
+            <RowDefinition Height="60" /> <!-- 4.txtBoxInterval -->
+            <RowDefinition Height="auto" /> <!-- 5.txtBoxInterval.validator -->
+            <RowDefinition Height="60" /> <!-- 6.button -->
+        </Grid.RowDefinitions>
+        
+        <TextBox Grid.Row="0" Name="txtBoxUrl" Header="Enter server URL:" PlaceholderText="Url" TextChanged="OnUrlChanged" />
+        <InfoBar Grid.Row="1" Name="infoUrl" IsOpen="False" IsIconVisible="True" IsClosable="False" Title="Error" Severity="Error"
+            Message="This is not a valid URL" Visibility="Collapsed" />
+
+        <TextBox Grid.Row="2" Name="txtBoxToken" Header="Enter the token:" PlaceholderText="Token" TextWrapping="Wrap" 
+                 AutomationProperties.Name="multi-line TextBox" TextChanged="OnTokenChanged" />
+        <InfoBar Grid.Row="3" Name="infoToken" IsOpen="False" IsIconVisible="True" IsClosable="False" Title="Title" Severity="Error"
+            Message="This is not a valid token" Visibility="Collapsed" />
+
+        <TextBox Grid.Row="4" Name="txtBoxInterval" Header="Heartbeat interval:" PlaceholderText="1,50"
+                   PreviewKeyDown="txtBoxInterval_PreviewKeyDown" TextChanged="OnIntervalChanges" />
+        <InfoBar Grid.Row="5" Name="infoInterval" IsOpen="False" IsIconVisible="True" IsClosable="False" Title="Title" Severity="Error"
+            Message="This is not a valid interval" Visibility="Collapsed" />
+
+        <Button Grid.Row="6" Name="saveBtn" Content="Save"  Click="OnSaveButtonClicked" Width="150" HorizontalAlignment="Left" />
+    </Grid>
+</Page>
