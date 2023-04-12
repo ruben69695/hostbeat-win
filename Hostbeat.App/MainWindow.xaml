@@ -1,0 +1,33 @@
+﻿<Window
+    x:Class="Hostbeat.MainWindow"
+    x:Name="mainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hostbeat"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <NavigationView x:Name="navigationView"
+                            Header=""
+                            PaneDisplayMode="Top"
+                            SelectionChanged="OnNavigationChanged"
+                            IsSettingsVisible="False"
+                            SelectedItem="{x:Bind defaultNav, Mode=OneTime}"
+                            Margin="0,50,0,0">
+        <NavigationView.MenuItems>
+            <NavigationViewItem x:Name="defaultNav" x:Uid="HeartbeatTab" Tag="HeartbeatPage" Icon="Play" />
+        </NavigationView.MenuItems>
+        <NavigationView.FooterMenuItems>
+            <NavigationViewItem x:Uid="SettingTab" Tag="SettingsPage" Icon="Setting" />
+            <NavigationViewItem x:Uid="AboutTab" Tag="AboutPage" Icon="ContactInfo" />
+        </NavigationView.FooterMenuItems>
+        <Frame x:Name="navigationContent" Margin="55,30,50,0">
+            <Frame.ContentTransitions>
+                <TransitionCollection>
+                    <NavigationThemeTransition  />
+                </TransitionCollection>
+            </Frame.ContentTransitions>
+        </Frame>
+    </NavigationView>
+</Window>

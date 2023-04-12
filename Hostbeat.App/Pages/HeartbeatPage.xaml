@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="Hostbeat.Pages.HeartbeatPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hostbeat.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Unloaded="Page_Unloaded"
+    Loaded="Page_Loaded">
+
+    <Grid RowSpacing="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0">
+        </StackPanel>
+        <StackPanel Grid.Row="1">
+            <Button Name="btnStartHeartbeat" Width="150" Click="BtnStartClicked" />
+            <ProgressBar Name="pBar" HorizontalAlignment="Left" Grid.Row="2" Width="150" IsIndeterminate="True" ShowPaused="True" ShowError="False" />
+        </StackPanel>
+        <Grid Name="mainGrid" HorizontalAlignment="Stretch" Grid.Row="2" RowSpacing="15" ColumnSpacing="10" Margin="0,50,0,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <!--<RowDefinition Height="auto" />-->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" CornerRadius="5"/>
+            <TextBlock Grid.Row="0" Grid.Column="0" Padding="8" x:Uid="Date" HorizontalAlignment="Stretch" FontSize="15" FontWeight="Normal" />
+
+            <Border Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="2" Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" CornerRadius="5"/>
+            <TextBlock Grid.Row="0" Grid.Column="1" Padding="8" x:Uid="Message" HorizontalAlignment="Stretch" FontSize="15" FontWeight="Normal" />
+
+            <Border Grid.Row="0" Grid.Column="2" Grid.ColumnSpan="2" Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" CornerRadius="5"/>
+            <TextBlock Grid.Row="0" Grid.Column="2" Padding="8" x:Uid="Status" HorizontalAlignment="Stretch" FontSize="15" FontWeight="Normal" />
+            
+            <!-- TEST DATA -->
+            <!--<Border Margin="5,0,0,0" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" CornerRadius="5"/>
+            <TextBlock Grid.Row="1" Grid.Column="0" Padding="15" Text="21/01/2023 21:50:00" HorizontalAlignment="Stretch" FontSize="15" FontWeight="Normal" />
+
+            <Border Margin="0,0,5,0" Grid.Row="1" Grid.Column="1" Grid.ColumnSpan="2" Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" CornerRadius="5"/>
+            <TextBlock Grid.Row="1" Grid.Column="1" Padding="15" Text="Heartbeat sended" HorizontalAlignment="Stretch" FontSize="15" FontWeight="Normal" />
+
+            <Border Margin="0,0,5,0" Grid.Row="1" Grid.Column="2" Grid.ColumnSpan="2" Background="{ThemeResource AcrylicBackgroundFillColorDefaultBrush}" CornerRadius="5"/>
+            <StackPanel Grid.Row="1" Grid.Column="2" Padding="15"  HorizontalAlignment="Left">
+                <SymbolIcon Symbol="Accept" />
+            </StackPanel>-->
+        </Grid>
+    </Grid>
+</Page>

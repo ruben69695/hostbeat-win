@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="Hostbeat.Pages.AboutPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Hostbeat.Pages"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <RichTextBlock Name="aboutText" Grid.Row="0" TextWrapping="Wrap" />
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="5" Margin="0,10,0,10" HorizontalAlignment="Center">
+            <HyperlinkButton x:Uid="HyperlinkWin" NavigateUri="https://github.com/ruben69695/hostbeat-win"/>
+            <HyperlinkButton x:Uid="HyperlinkCli" NavigateUri="https://github.com/ruben69695/hostbeat-cli"/>
+        </StackPanel>
+        <RichTextBlock Name="madeByText" Grid.Row="2" TextWrapping="Wrap" Margin="0,15,0,25" HorizontalAlignment="Center" />
+    </Grid>
+</Page>

@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "Hostbeat (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "Hostbeat (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
