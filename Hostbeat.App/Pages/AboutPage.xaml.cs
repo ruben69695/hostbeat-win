@@ -1,3 +1,5 @@
+using Hostbeat.Core.Interfaces;
+using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Documents;
 
@@ -12,12 +14,13 @@ public sealed partial class AboutPage : Page
 
     private void Page_Loaded(object sender, Microsoft.UI.Xaml.RoutedEventArgs e)
     {
-        var resourceLoader = Windows.ApplicationModel.Resources.ResourceLoader.GetForViewIndependentUse();
+        var currentApp = (App)Application.Current;
+
         var aboutParagraph = new Paragraph();
         var madeByParagraph = new Paragraph();
 
-        aboutParagraph.Inlines.Add(new Run() { Text = resourceLoader.GetString("AboutApp") });
-        madeByParagraph.Inlines.Add(new Run() { Text = resourceLoader.GetString("MadeBy") });
+        aboutParagraph.Inlines.Add(new Run() { Text = currentApp.Locale.GetString("AboutApp") });
+        madeByParagraph.Inlines.Add(new Run() { Text = currentApp.Locale.GetString("MadeBy") });
         
         aboutText.Blocks.Add(aboutParagraph);
         madeByText.Blocks.Add(madeByParagraph);

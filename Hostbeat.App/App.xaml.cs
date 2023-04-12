@@ -16,7 +16,7 @@ namespace Hostbeat
         public IGetSettings getSettings => settingsService;
         public IGetLogs GetLogs => heartbeatService;
         public IHeartbeatCommands HeartbeatCommands => heartbeatService;
-        public ILocale locale => localeService;
+        public ILocale Locale => localeService;
 
         public App()
         {

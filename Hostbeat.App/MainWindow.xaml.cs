@@ -23,10 +23,11 @@ public sealed partial class MainWindow : Window
     {
         this.InitializeComponent();
 
+        var currentApp = (App)Application.Current;
 
         m_AppWindow = GetAppWindowForCurrentWindow();
         m_AppWindow.Resize(new Windows.Graphics.SizeInt32(960, 960));
-        m_AppWindow.Title = Windows.ApplicationModel.Resources.ResourceLoader.GetForViewIndependentUse().GetString("AppDisplayName");
+        m_AppWindow.Title = currentApp.Locale.GetString("AppDisplayName");
 
         // Check to see if customization is supported.
         // Currently only supported on Windows 11.

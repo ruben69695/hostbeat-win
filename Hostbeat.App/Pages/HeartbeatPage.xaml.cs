@@ -4,7 +4,6 @@ using Hostbeat.Core.Interfaces;
 using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media;
-using Windows.ApplicationModel.Resources;
 
 namespace Hostbeat.Pages
 {
@@ -12,7 +11,7 @@ namespace Hostbeat.Pages
     {
         private IHeartbeatCommands _commands;
         private bool _started = false;
-        private ResourceLoader _resourceLoader;
+        private ILocale _locale;
 
         public HeartbeatPage()
         {
@@ -21,15 +20,15 @@ namespace Hostbeat.Pages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
-            _resourceLoader = ResourceLoader.GetForViewIndependentUse();
             var currentApp = (App)Application.Current;
             var currentLogs = currentApp.GetLogs.Logs;
 
             _commands = currentApp.HeartbeatCommands;
+            _locale = currentApp.Locale;
 
             _started = _commands.LastCommand == HeartbeatCommand.Start;
 
-            btnStartHeartbeat.Content = _started ? _resourceLoader.GetString("Stop") : _resourceLoader.GetString("Start");
+            btnStartHeartbeat.Content = _started ? _locale.GetString("Stop") : _locale.GetString("Start");
             pBar.ShowPaused = _started ? false : true;
 
             foreach (var log in currentLogs)
@@ -166,7 +165,7 @@ namespace Hostbeat.Pages
 
             _started = _commands.LastCommand == HeartbeatCommand.Start;
 
-            btnStartHeartbeat.Content = _started ? _resourceLoader.GetString("Stop") : _resourceLoader.GetString("Start");
+            btnStartHeartbeat.Content = _started ? _locale.GetString("Stop") : _locale.GetString("Start");
             pBar.ShowPaused = _started ? false : true;
         }
     }
