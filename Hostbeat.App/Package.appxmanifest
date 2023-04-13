@@ -4,16 +4,17 @@
   xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
   xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
   xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
-  IgnorableNamespaces="uap rescap">
+  xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest"
+  IgnorableNamespaces="uap rescap mp">
 
   <Identity
-    Name="d02232f9-092d-42e1-a78a-95a20b5d4d0c"
-    Publisher="CN=ruben"
+    Name="28222RubenArrebola.HostbeatClient"
+    Publisher="CN=E355D98F-8FC9-44DF-94BE-0238E0B78053"
     Version="1.0.0.0" />
 
   <Properties>
     <DisplayName>Hostbeat Client</DisplayName>
-    <PublisherDisplayName>ruben</PublisherDisplayName>
+    <PublisherDisplayName>Ruben Arrebola</PublisherDisplayName>
     <Logo>Assets\StoreLogo.png</Logo>
   </Properties>
 
@@ -47,8 +48,8 @@
     </Application>
   </Applications>
 
+  <mp:PhoneIdentity PhoneProductId="03819b08-2afc-4f6d-98b7-36942b305224" PhonePublisherId="00000000-0000-0000-0000-000000000000"/>
+
   <Capabilities>
-    <rescap:Capability Name="runFullTrust" />
-    <Capability Name="internetClient"/>
-  </Capabilities>
+    <Capability Name="internetClient"/></Capabilities>
 </Package>
