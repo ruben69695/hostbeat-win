@@ -157,10 +157,10 @@
     <value>Error desconocido al enviar el latido, código de estado recibido: {0}</value>
   </data>
   <data name="HeartbeatSuccess" xml:space="preserve">
-    <value>Látido enviado</value>
+    <value>Latido enviado</value>
   </data>
   <data name="HeartbeatTab.Content" xml:space="preserve">
-    <value>Látidos</value>
+    <value>Latidos</value>
   </data>
   <data name="HyperlinkCli.Content" xml:space="preserve">
     <value>CLI App en GitHub</value>
