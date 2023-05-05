@@ -14,7 +14,6 @@ public sealed partial class SettingsPage : Page
     private ISetSettings setSettings;
     private IGetSettings getSettings;
     private bool intervalIsValid;
-    private bool urlIsValid;
     private bool tokenIsValid;
     private readonly Regex regexUrl;
     public SettingsPage()
@@ -35,23 +34,23 @@ public sealed partial class SettingsPage : Page
 
         var settings = await getSettings.GetAsync();
 
-        txtBoxUrl.Text = settings.Url;
         txtBoxToken.Text = settings.Token;
         txtBoxInterval.Text = settings.Interval.ToString();
+        checkBoxAutoStart.IsChecked = settings.AutoStart;
     }
 
     private async void OnSaveButtonClicked(object sender, RoutedEventArgs e)
     {
-        if (!intervalIsValid || !urlIsValid || !tokenIsValid)
+        if (!intervalIsValid || !tokenIsValid)
         {
             return;
         }
 
-        var url = txtBoxUrl.Text;
         var token = txtBoxToken.Text;
         var interval = Convert.ToDouble(txtBoxInterval.Text);
+        bool autoStart = checkBoxAutoStart.IsChecked ?? false;
 
-        await setSettings.SetAsync(new Settings(url, token, interval));
+        await setSettings.SetAsync(new Settings(token, interval, autoStart));
     }
 
     private void txtBoxInterval_PreviewKeyDown(object sender, KeyRoutedEventArgs e)
@@ -98,32 +97,6 @@ public sealed partial class SettingsPage : Page
         CheckToActivateSaveButton();
     }
 
-    private void OnUrlChanged(object sender, TextChangedEventArgs e)
-    {
-        var source = sender as TextBox;
-
-        MatchCollection matches = regexUrl.Matches(source.Text);
-
-        if (matches.Count == 0)
-        {
-            infoUrl.Visibility = Visibility.Visible;
-            infoUrl.Message = "This is not a valid URL format";
-            infoUrl.IsOpen = true;
-
-            urlIsValid = false;
-        }
-        else
-        {
-            infoUrl.Visibility = Visibility.Collapsed;
-            infoUrl.IsOpen = false;
-            infoUrl.Message = string.Empty;
-
-            urlIsValid = true;
-        }
-
-        CheckToActivateSaveButton();
-    }
-
     private void OnTokenChanged(object sender, TextChangedEventArgs e)
     {
         tokenIsValid = true;
@@ -132,6 +105,6 @@ public sealed partial class SettingsPage : Page
 
     private void CheckToActivateSaveButton()
     {
-        saveBtn.IsEnabled = urlIsValid && tokenIsValid && intervalIsValid;
+        saveBtn.IsEnabled = tokenIsValid && intervalIsValid;
     }
 }

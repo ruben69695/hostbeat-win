@@ -1,18 +1,22 @@
 ﻿using System.Text.Json;
+using System.Text.Json.Serialization;
 
 namespace Hostbeat.Core;
 
 public class Settings
 {
-    public string Url { get; init; }
+    [JsonIgnore]
+    public string Url { get; private set; } = "https://hostbeatapi.rubenarrebola.pro";
+
     public string Token { get; init; }
     public double Interval { get; init; }
+    public bool AutoStart {  get; init; }
 
-    public Settings(string url, string token, double interval)
+    public Settings(string token, double interval, bool autoStart)
     {
-        Url = url ?? throw new ArgumentNullException(nameof(url));
         Token = token ?? throw new ArgumentNullException(nameof(token));
         Interval = interval;
+        AutoStart = autoStart;
     }
 
     public string ToJson()
@@ -27,6 +31,6 @@ public class Settings
 
     public static Settings Default()
     {
-        return new ("https://hostbeatapi.rubenarrebola.pro", string.Empty, 1.0d);
+        return new (string.Empty, 1.0d, false);
     }
 }

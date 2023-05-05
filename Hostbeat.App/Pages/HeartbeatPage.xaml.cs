@@ -12,6 +12,7 @@ namespace Hostbeat.Pages
         private IHeartbeatCommands _commands;
         private bool _started = false;
         private ILocale _locale;
+        private Settings _settings;
 
         public HeartbeatPage()
         {
@@ -25,6 +26,7 @@ namespace Hostbeat.Pages
 
             _commands = currentApp.HeartbeatCommands;
             _locale = currentApp.Locale;
+            _settings = currentApp.getSettingsObject;
 
             _started = _commands.LastCommand == HeartbeatCommand.Start;
 
@@ -37,6 +39,11 @@ namespace Hostbeat.Pages
             }
 
             currentApp.GetLogs.LogAdded += GetLogs_LogAdded;
+
+            if (!_commands.StartedCommandFired && _settings.AutoStart && !string.IsNullOrWhiteSpace(_settings.Token))
+            {
+                BtnStartClicked(this, new RoutedEventArgs());
+            }
         }
 
         private void GetLogs_LogAdded(object sender, Core.Events.LogAddedEventArgs e)

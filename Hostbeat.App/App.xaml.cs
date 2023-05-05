@@ -1,4 +1,5 @@
-﻿using Hostbeat.Core.Interfaces;
+﻿using Hostbeat.Core;
+using Hostbeat.Core.Interfaces;
 using Hostbeat.Core.Services;
 using Hostbeat.Locale;
 using Microsoft.UI.Xaml;
@@ -17,6 +18,7 @@ namespace Hostbeat
         public IGetLogs GetLogs => heartbeatService;
         public IHeartbeatCommands HeartbeatCommands => heartbeatService;
         public ILocale Locale => localeService;
+        public Settings getSettingsObject => settingsService.Settings;
 
         public App()
         {

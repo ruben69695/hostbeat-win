@@ -1,3 +1,4 @@
+using Hostbeat.Core.Interfaces;
 using Hostbeat.Pages;
 using Microsoft.UI;
 using Microsoft.UI.Composition;
@@ -18,6 +19,9 @@ public sealed partial class MainWindow : Window
     private WindowsSystemDispatcherQueueHelper m_wsdqHelper;
     private MicaController m_micaController;
     private SystemBackdropConfiguration m_configurationSource;
+    private IHeartbeatCommands commands;
+    private ILocale locale;
+    private bool _forceClose;
 
     public MainWindow()
     {
@@ -28,6 +32,8 @@ public sealed partial class MainWindow : Window
         m_AppWindow = GetAppWindowForCurrentWindow();
         m_AppWindow.Resize(new Windows.Graphics.SizeInt32(960, 960));
         m_AppWindow.Title = currentApp.Locale.GetString("AppDisplayName");
+        commands = currentApp.HeartbeatCommands;
+        locale = currentApp.Locale;
 
         // Check to see if customization is supported.
         // Currently only supported on Windows 11.
@@ -88,8 +94,22 @@ public sealed partial class MainWindow : Window
         m_configurationSource.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
     }
 
-    private void Window_Closed(object sender, WindowEventArgs args)
+    private async void Window_Closed(object sender, WindowEventArgs args)
     {
+        if (!_forceClose && commands.LastCommand == Core.Enums.HeartbeatCommand.Start)
+        {
+            var contentDialog = new ContentDialog();
+            contentDialog.XamlRoot = this.Content.XamlRoot;
+            contentDialog.Content = locale.GetString("ExitDialogContent");
+            contentDialog.Title = locale.GetString("ExitDialogContentTitle");
+            contentDialog.PrimaryButtonText = locale.GetString("ExitDialogPrimaryButtonText");
+            contentDialog.CloseButtonClick += ContentDialog_CloseButtonClick;
+            contentDialog.CloseButtonText = locale.GetString("ExitDialogCloseButtonText");
+            args.Handled = true;
+            await contentDialog.ShowAsync();
+            return;
+        }
+
         // Make sure any Mica/Acrylic controller is disposed so it doesn't try to
         // use this closed window.
         if (m_micaController != null)
@@ -99,6 +119,12 @@ public sealed partial class MainWindow : Window
         }
         this.Activated -= Window_Activated;
         m_configurationSource = null;
+    }
+
+    private void ContentDialog_CloseButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
+    {
+        _forceClose = true;
+        Environment.Exit(0);
     }
 
     private void Window_ThemeChanged(FrameworkElement sender, object args)

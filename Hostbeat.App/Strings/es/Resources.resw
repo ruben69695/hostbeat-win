@@ -126,6 +126,9 @@
   <data name="AppDisplayName" xml:space="preserve">
     <value>Cliente Hostbeat</value>
   </data>
+  <data name="AutoStartCheckBox.Content" xml:space="preserve">
+    <value>Envío automático de latidos al inicio</value>
+  </data>
   <data name="Date.Text" xml:space="preserve">
     <value>Fecha</value>
   </data>
@@ -141,12 +144,6 @@
   <data name="EnterTokenError.Message" xml:space="preserve">
     <value>Este no es un token válida</value>
   </data>
-  <data name="EnterUrl.Header" xml:space="preserve">
-    <value>Introduzca la URL del servidor:</value>
-  </data>
-  <data name="EnterUrlError.Message" xml:space="preserve">
-    <value>Esta no es una URL válida</value>
-  </data>
   <data name="ErrorHostNotFound" xml:space="preserve">
     <value>Error al enviar el latido, host no encontrado para el token actual</value>
   </data>
@@ -155,6 +152,18 @@
   </data>
   <data name="ErrorUnknown" xml:space="preserve">
     <value>Error desconocido al enviar el latido, código de estado recibido: {0}</value>
+  </data>
+  <data name="ExitDialogCloseButtonText" xml:space="preserve">
+    <value>Cerramos</value>
+  </data>
+  <data name="ExitDialogContent" xml:space="preserve">
+    <value>Si cierras la aplicación dejarán de enviarse los latidos.¿Estás seguro?</value>
+  </data>
+  <data name="ExitDialogPrimaryButtonText" xml:space="preserve">
+    <value>Nos quedamos</value>
+  </data>
+  <data name="ExitDialogTitle" xml:space="preserve">
+    <value>Recuerda</value>
   </data>
   <data name="HeartbeatSuccess" xml:space="preserve">
     <value>Latido enviado</value>

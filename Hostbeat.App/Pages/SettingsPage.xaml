@@ -10,29 +10,26 @@
 
     <Grid RowSpacing="15">
         <Grid.RowDefinitions>
-            <RowDefinition Height="60" /> <!-- 0.txtBoxUrl -->
-            <RowDefinition Height="auto" /> <!-- 1.txtBoxUrl.validator -->
-            <RowDefinition Height="100"/> <!-- 2.txtBoxToken -->
-            <RowDefinition Height="auto"/>  <!-- 3.txtBoxToken.validator -->
-            <RowDefinition Height="60" /> <!-- 4.txtBoxInterval -->
-            <RowDefinition Height="auto" /> <!-- 5.txtBoxInterval.validator -->
-            <RowDefinition Height="60" /> <!-- 6.button -->
+            <RowDefinition Height="100"/> <!-- 0.txtBoxToken -->
+            <RowDefinition Height="auto"/>  <!-- 1.txtBoxToken.validator -->
+            <RowDefinition Height="60" /> <!-- 2.txtBoxInterval -->
+            <RowDefinition Height="auto" /> <!-- 3.txtBoxInterval.validator -->
+            <RowDefinition Height="60" /> <!-- 4.checkBoxAutoStart -->
+            <RowDefinition Height="60" /> <!-- 5.button -->
         </Grid.RowDefinitions>
-        
-        <TextBox Grid.Row="0" Name="txtBoxUrl" x:Uid="EnterUrl" PlaceholderText="Url" TextChanged="OnUrlChanged" />
-        <InfoBar Grid.Row="1" Name="infoUrl" x:Uid="EnterUrlError" IsOpen="False" IsIconVisible="True" IsClosable="False" Title="Error" Severity="Error"
-            Visibility="Collapsed" />
 
-        <TextBox Grid.Row="2" Name="txtBoxToken" x:Uid="EnterToken" PlaceholderText="Token" TextWrapping="Wrap" 
+        <TextBox Grid.Row="0" Name="txtBoxToken" x:Uid="EnterToken" PlaceholderText="Token" TextWrapping="Wrap" 
                  AutomationProperties.Name="multi-line TextBox" TextChanged="OnTokenChanged" />
-        <InfoBar Grid.Row="3" Name="infoToken" x:Uid="EnterTokenError" IsOpen="False" IsIconVisible="True" IsClosable="False" Title="Title" Severity="Error"
+        <InfoBar Grid.Row="1" Name="infoToken" x:Uid="EnterTokenError" IsOpen="False" IsIconVisible="True" IsClosable="False" Title="Title" Severity="Error"
             Visibility="Collapsed" />
 
-        <TextBox Grid.Row="4" Name="txtBoxInterval" x:Uid="EnterInterval" PlaceholderText="1,50"
+        <TextBox Grid.Row="2" Name="txtBoxInterval" x:Uid="EnterInterval" PlaceholderText="1,50"
                    PreviewKeyDown="txtBoxInterval_PreviewKeyDown" TextChanged="OnIntervalChanges" />
-        <InfoBar Grid.Row="5" Name="infoInterval" x:Uid="EnterIntervalError" IsOpen="False" IsIconVisible="True" IsClosable="False" Title="Title" Severity="Error"
+        <InfoBar Grid.Row="3" Name="infoInterval" x:Uid="EnterIntervalError" IsOpen="False" IsIconVisible="True" IsClosable="False" Title="Title" Severity="Error"
             Visibility="Collapsed" />
 
-        <Button Grid.Row="6" Name="saveBtn" x:Uid="Save"  Click="OnSaveButtonClicked" Width="150" HorizontalAlignment="Left" />
+        <CheckBox Grid.Row="4" Name="checkBoxAutoStart" x:Uid="AutoStartCheckBox" />
+
+        <Button Grid.Row="5" Name="saveBtn" x:Uid="Save"  Click="OnSaveButtonClicked" Width="150" HorizontalAlignment="Left" />
     </Grid>
 </Page>

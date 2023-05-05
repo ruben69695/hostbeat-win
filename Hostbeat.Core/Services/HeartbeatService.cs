@@ -21,6 +21,7 @@ public class HeartbeatService : IObservableSettingsChanged, IHeartbeatCommands, 
     public IEnumerable<LogMessage> Logs => _logs;
 
     public HeartbeatCommand? LastCommand { get; private set; }
+    public bool StartedCommandFired { get; private set; }
 
     public HeartbeatService(ILocale locale)
 	{
@@ -66,6 +67,7 @@ public class HeartbeatService : IObservableSettingsChanged, IHeartbeatCommands, 
         _timer.Start();
 
         LastCommand = HeartbeatCommand.Start;
+        StartedCommandFired = true;
     }
 
     public void Stop()

@@ -126,6 +126,9 @@
   <data name="AppDisplayName" xml:space="preserve">
     <value>Hostbeat Client</value>
   </data>
+  <data name="AutoStartCheckBox.Content" xml:space="preserve">
+    <value>Auto send heartbeats on start</value>
+  </data>
   <data name="Date.Text" xml:space="preserve">
     <value>Date</value>
   </data>
@@ -141,12 +144,6 @@
   <data name="EnterTokenError.Message" xml:space="preserve">
     <value>This is not a valid token</value>
   </data>
-  <data name="EnterUrl.Header" xml:space="preserve">
-    <value>Enter server URL:</value>
-  </data>
-  <data name="EnterUrlError.Message" xml:space="preserve">
-    <value>This is not a valid URL</value>
-  </data>
   <data name="ErrorHostNotFound" xml:space="preserve">
     <value>Error sending heartbeat, host not found for current token</value>
   </data>
@@ -155,6 +152,18 @@
   </data>
   <data name="ErrorUnknown" xml:space="preserve">
     <value>Unknown error sending heartbeat , status code received: {0}</value>
+  </data>
+  <data name="ExitDialogCloseButtonText" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="ExitDialogContent" xml:space="preserve">
+    <value>If you close the application, the heartbeats will stop being sent. Are you sure?</value>
+  </data>
+  <data name="ExitDialogPrimaryButtonText" xml:space="preserve">
+    <value>Stay</value>
+  </data>
+  <data name="ExitDialogTitle" xml:space="preserve">
+    <value>Remember</value>
   </data>
   <data name="HeartbeatSuccess" xml:space="preserve">
     <value>Heartbeat sended</value>
