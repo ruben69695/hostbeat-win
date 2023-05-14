@@ -1,4 +1,5 @@
-﻿using System.Text.Json;
+﻿using Hostbeat.Core.Enums;
+using System.Text.Json;
 using System.Text.Json.Serialization;
 
 namespace Hostbeat.Core;
@@ -12,11 +13,15 @@ public class Settings
     public double Interval { get; init; }
     public bool AutoStart {  get; init; }
 
-    public Settings(string token, double interval, bool autoStart)
+    [JsonConverter(typeof(JsonStringEnumConverter))]
+    public AppStartupValue AppStartupOnLogin { get; init; }
+
+    public Settings(string token, double interval, bool autoStart, AppStartupValue appStartupOnLogin)
     {
         Token = token ?? throw new ArgumentNullException(nameof(token));
         Interval = interval;
         AutoStart = autoStart;
+        AppStartupOnLogin = appStartupOnLogin;
     }
 
     public string ToJson()
@@ -31,6 +36,6 @@ public class Settings
 
     public static Settings Default()
     {
-        return new (string.Empty, 1.0d, false);
+        return new (string.Empty, 1.0d, false, AppStartupValue.Minimized);
     }
 }

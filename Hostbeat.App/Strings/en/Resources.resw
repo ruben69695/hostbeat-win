@@ -126,6 +126,9 @@
   <data name="AppDisplayName" xml:space="preserve">
     <value>Hostbeat Client</value>
   </data>
+  <data name="AppStartupTextBlock.Text" xml:space="preserve">
+    <value>Open Hostbeat Client automatically after you log into the computer:</value>
+  </data>
   <data name="AutoStartCheckBox.Content" xml:space="preserve">
     <value>Auto send heartbeats on start</value>
   </data>
@@ -183,6 +186,12 @@
   <data name="Message.Text" xml:space="preserve">
     <value>Message</value>
   </data>
+  <data name="MinimizedOptionDisplayName" xml:space="preserve">
+    <value>Minimized</value>
+  </data>
+  <data name="NoOptionDisplayName" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="Save.Content" xml:space="preserve">
     <value>Save</value>
   </data>
@@ -192,10 +201,19 @@
   <data name="Start" xml:space="preserve">
     <value>Start</value>
   </data>
+  <data name="StartupDisabledBySystem.Message" xml:space="preserve">
+    <value>To change the above value from the application, you must first enable the startup manually from the "Startup" tab in the "Task Manager", once the application is enabled, you can manage it from here.</value>
+  </data>
+  <data name="StartupDisabledBySystem.Title" xml:space="preserve">
+    <value>App Startup Warning</value>
+  </data>
   <data name="Status.Text" xml:space="preserve">
     <value>Status</value>
   </data>
   <data name="Stop" xml:space="preserve">
     <value>Stop</value>
+  </data>
+  <data name="YesOptionDisplayName" xml:space="preserve">
+    <value>Yes</value>
   </data>
 </root>

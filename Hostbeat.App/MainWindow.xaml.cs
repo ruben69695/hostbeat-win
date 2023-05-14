@@ -1,5 +1,7 @@
+using Hostbeat.Core.Enums;
 using Hostbeat.Core.Interfaces;
 using Hostbeat.Pages;
+using Hostbeat.Services;
 using Microsoft.UI;
 using Microsoft.UI.Composition;
 using Microsoft.UI.Composition.SystemBackdrops;
@@ -8,6 +10,7 @@ using Microsoft.UI.Xaml;
 using Microsoft.UI.Xaml.Controls;
 using Microsoft.UI.Xaml.Media.Animation;
 using System;
+using Windows.ApplicationModel.Activation;
 using WinRT;
 using WinRT.Interop;
 
@@ -20,18 +23,23 @@ public sealed partial class MainWindow : Window
     private MicaController m_micaController;
     private SystemBackdropConfiguration m_configurationSource;
     private IHeartbeatCommands commands;
+    private App currentApp;
     private ILocale locale;
     private bool _forceClose;
+    private bool _startMinimizedOnStartupTaskLaunch;
 
     public MainWindow()
     {
         this.InitializeComponent();
 
-        var currentApp = (App)Application.Current;
+        currentApp = (App)Application.Current;
 
         m_AppWindow = GetAppWindowForCurrentWindow();
-        m_AppWindow.Resize(new Windows.Graphics.SizeInt32(960, 960));
         m_AppWindow.Title = currentApp.Locale.GetString("AppDisplayName");
+        m_AppWindow.Resize(new Windows.Graphics.SizeInt32(960, 960));
+
+        CenterWindowInScreen(m_AppWindow);
+
         commands = currentApp.HeartbeatCommands;
         locale = currentApp.Locale;
 
@@ -47,7 +55,12 @@ public sealed partial class MainWindow : Window
         }
 
         TrySetMicaBackdrop();
+
+        _startMinimizedOnStartupTaskLaunch = WindowHasToStartMinimized();
     }
+
+    private bool WindowHasToStartMinimized() 
+        => Windows.ApplicationModel.AppInstance.GetActivatedEventArgs().Kind == ActivationKind.StartupTask && currentApp.getSettingsObject.AppStartupOnLogin == AppStartupValue.Minimized;
 
     private AppWindow GetAppWindowForCurrentWindow()
     {
@@ -56,7 +69,27 @@ public sealed partial class MainWindow : Window
         return AppWindow.GetFromWindowId(wndId);
     }
 
-    bool TrySetMicaBackdrop()
+    private void MinimizeWindow(AppWindow window)
+    {
+        ((OverlappedPresenter)window.Presenter).Minimize();
+    }
+
+    private void CenterWindowInScreen(AppWindow window)
+    {
+        DisplayArea displayArea = DisplayArea.GetFromWindowId(window.Id, DisplayAreaFallback.Nearest);
+
+        if (displayArea != null)
+        {
+            var centeredPosition = window.Position;
+
+            centeredPosition.X = ((displayArea.WorkArea.Width - window.Size.Width) / 2);
+            centeredPosition.Y = ((displayArea.WorkArea.Height - window.Size.Height) / 2);
+            
+            window.Move(centeredPosition);
+        }
+    }
+
+    private bool TrySetMicaBackdrop()
     {
         if (MicaController.IsSupported())
         {
@@ -92,6 +125,12 @@ public sealed partial class MainWindow : Window
     private void Window_Activated(object sender, WindowActivatedEventArgs args)
     {
         m_configurationSource.IsInputActive = args.WindowActivationState != WindowActivationState.Deactivated;
+
+        if (_startMinimizedOnStartupTaskLaunch)
+        {
+            MinimizeWindow(m_AppWindow);
+            _startMinimizedOnStartupTaskLaunch = false;
+        }
     }
 
     private async void Window_Closed(object sender, WindowEventArgs args)

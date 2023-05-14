@@ -14,8 +14,9 @@
             <RowDefinition Height="auto"/>  <!-- 1.txtBoxToken.validator -->
             <RowDefinition Height="60" /> <!-- 2.txtBoxInterval -->
             <RowDefinition Height="auto" /> <!-- 3.txtBoxInterval.validator -->
-            <RowDefinition Height="60" /> <!-- 4.checkBoxAutoStart -->
-            <RowDefinition Height="60" /> <!-- 5.button -->
+            <RowDefinition Height="auto" /> <!-- 4.checkBoxAutoStart -->
+            <RowDefinition Height="auto" /> <!-- 5.startupSelector -->
+            <RowDefinition Height="60" /> <!-- 6.button -->
         </Grid.RowDefinitions>
 
         <TextBox Grid.Row="0" Name="txtBoxToken" x:Uid="EnterToken" PlaceholderText="Token" TextWrapping="Wrap" 
@@ -30,6 +31,19 @@
 
         <CheckBox Grid.Row="4" Name="checkBoxAutoStart" x:Uid="AutoStartCheckBox" />
 
-        <Button Grid.Row="5" Name="saveBtn" x:Uid="Save"  Click="OnSaveButtonClicked" Width="150" HorizontalAlignment="Left" />
+        <Grid Grid.Row="5" RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            
+            <TextBlock Grid.Row="0" Grid.Column="0" x:Uid="AppStartupTextBlock" />
+            <ComboBox Grid.Row="1" Grid.Column="0" Name="comboAppStartup" DisplayMemberPath="DisplayValue" Width="150" />
+            <InfoBar Grid.Row="2" Grid.Column="0" Name="warningStartup" x:Uid="StartupDisabledBySystem" IsOpen="False" IsIconVisible="True" IsClosable="False" Title="Title" Severity="Warning" 
+                     Visibility="Collapsed" />
+        </Grid>
+
+        <Button Grid.Row="6" Name="saveBtn" x:Uid="Save"  Click="OnSaveButtonClicked" Width="150" HorizontalAlignment="Left" />
     </Grid>
 </Page>
