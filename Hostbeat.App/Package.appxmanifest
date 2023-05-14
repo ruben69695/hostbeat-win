@@ -49,7 +49,7 @@
       <Extensions>
         <uap5:Extension
           Category="windows.startupTask"
-          Executable="bin\$targetnametoken$.exe"
+          Executable="HostbeatClient.exe"
           EntryPoint="Windows.FullTrustApplication">
           <uap5:StartupTask
             TaskId="HostbeatClientStartupTask"

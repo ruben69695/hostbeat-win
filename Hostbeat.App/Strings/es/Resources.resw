@@ -126,6 +126,9 @@
   <data name="AppDisplayName" xml:space="preserve">
     <value>Cliente Hostbeat</value>
   </data>
+  <data name="AppStartupTextBlock.Text" xml:space="preserve">
+    <value>Abrir Cliente Hostbeat automáticamente después de iniciar sesión en el ordenador:</value>
+  </data>
   <data name="AutoStartCheckBox.Content" xml:space="preserve">
     <value>Envío automático de latidos al inicio</value>
   </data>
@@ -183,6 +186,12 @@
   <data name="Message.Text" xml:space="preserve">
     <value>Mensaje</value>
   </data>
+  <data name="MinimizedOptionDisplayName" xml:space="preserve">
+    <value>Minimizado</value>
+  </data>
+  <data name="NoOptionDisplayName" xml:space="preserve">
+    <value>No</value>
+  </data>
   <data name="Save.Content" xml:space="preserve">
     <value>Guardar</value>
   </data>
@@ -192,10 +201,19 @@
   <data name="Start" xml:space="preserve">
     <value>Empezar</value>
   </data>
+  <data name="StartupDisabledBySystem.Message" xml:space="preserve">
+    <value>Para cambiar el valor anterior desde la aplicación, primero debes habilitar el inicio manualmente desde la pestaña "Inicio" en el "Administrador de tareas", una vez habilitada la aplicación, podrás gestionarlo desde aquí.</value>
+  </data>
+  <data name="StartupDisabledBySystem.Title" xml:space="preserve">
+    <value>Advertencia de Inicio</value>
+  </data>
   <data name="Status.Text" xml:space="preserve">
     <value>Estado</value>
   </data>
   <data name="Stop" xml:space="preserve">
     <value>Parar</value>
+  </data>
+  <data name="YesOptionDisplayName" xml:space="preserve">
+    <value>Si</value>
   </data>
 </root>
