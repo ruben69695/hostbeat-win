@@ -180,7 +180,7 @@
   <data name="HyperlinkWin.Content" xml:space="preserve">
     <value>This on Github</value>
   </data>
-  <data name="MadeBy" xml:space="preserve">
+  <data name="MadeBy.Text" xml:space="preserve">
     <value>Made by Ruben Arrebola with ❤️</value>
   </data>
   <data name="Message.Text" xml:space="preserve">
