@@ -11,7 +11,7 @@
   <Identity
     Name="28222RubenArrebola.HostbeatClient"
     Publisher="CN=E355D98F-8FC9-44DF-94BE-0238E0B78053"
-    Version="1.2.0.2" />
+    Version="1.2.0.5" />
 
   <Properties>
     <DisplayName>Hostbeat Client</DisplayName>
