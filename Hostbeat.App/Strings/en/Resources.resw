@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutApp" xml:space="preserve">
-    <value>This is a program made with the main idea of send heartbeats to the hostbeat platform and be able to be notified throught the mobile app when the host is disconnected from internet or is shuted down. There's also a CLI version made with Rust. To be able to see documentation or see the source code, please visit the next links using the buttons.</value>
+    <value>This is a program made with the main idea of send heartbeats to the hostbeat platform and be able to be notified throught the mobile app when the host is disconnected from internet or is shuted down. There's also a command line client available for Mac and Linux. You can take a look to the source code of the client or the project website using the next link buttons.</value>
   </data>
   <data name="AboutTab.Content" xml:space="preserve">
     <value>About</value>
@@ -174,11 +174,11 @@
   <data name="HeartbeatTab.Content" xml:space="preserve">
     <value>Heartbeat</value>
   </data>
-  <data name="HyperlinkCli.Content" xml:space="preserve">
-    <value>CLI App on GitHub</value>
+  <data name="HyperlinkWebProject.Content" xml:space="preserve">
+    <value>Project Website</value>
   </data>
   <data name="HyperlinkWin.Content" xml:space="preserve">
-    <value>This on Github</value>
+    <value>Source Code</value>
   </data>
   <data name="MadeBy.Text" xml:space="preserve">
     <value>Made by Ruben Arrebola with ❤️</value>
@@ -188,6 +188,9 @@
   </data>
   <data name="MinimizedOptionDisplayName" xml:space="preserve">
     <value>Minimized</value>
+  </data>
+  <data name="MobileAppInfo.Text" xml:space="preserve">
+    <value>If you don't have the Hostbeat App already installed on your phone, the app is available on the main application stores</value>
   </data>
   <data name="NoOptionDisplayName" xml:space="preserve">
     <value>No</value>
