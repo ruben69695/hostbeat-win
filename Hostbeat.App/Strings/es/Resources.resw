@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutApp" xml:space="preserve">
-    <value>Este es un programa creado con la idea principal de enviar latidos a la plataforma hostbeat y poder ser notificado a través de la aplicación móvil cuando el host se desconecte de Internet o se apague. También hay una versión CLI hecha con Rust. Para poder ver la documentación o ver el código fuente, visite los siguientes enlaces usando los botones.</value>
+    <value>Este es un programa creado con la idea principal de enviar latidos a la plataforma hostbeat y poder ser notificado a través de la aplicación móvil cuando el host se desconecte de Internet o se apague. También hay un cliente de línea de comandos disponible para Mac y Linux. Puedes echar un vistazo al código fuente del cliente o al sitio web del proyecto utilizando los siguientes botones de enlace:</value>
   </data>
   <data name="AboutTab.Content" xml:space="preserve">
     <value>Acerca de</value>
@@ -174,13 +174,13 @@
   <data name="HeartbeatTab.Content" xml:space="preserve">
     <value>Latidos</value>
   </data>
-  <data name="HyperlinkCli.Content" xml:space="preserve">
-    <value>CLI App en GitHub</value>
+  <data name="HyperlinkWebProject.Content" xml:space="preserve">
+    <value>Web del Proyecto</value>
   </data>
   <data name="HyperlinkWin.Content" xml:space="preserve">
-    <value>Esto en Github</value>
+    <value>Código fuente</value>
   </data>
-  <data name="MadeBy" xml:space="preserve">
+  <data name="MadeBy.Text" xml:space="preserve">
     <value>Realizada por Ruben Arrebola con ❤️</value>
   </data>
   <data name="Message.Text" xml:space="preserve">
@@ -188,6 +188,9 @@
   </data>
   <data name="MinimizedOptionDisplayName" xml:space="preserve">
     <value>Minimizado</value>
+  </data>
+  <data name="MobileAppInfo.Text" xml:space="preserve">
+    <value>Si aún no tienes la aplicación Hostbeat instalada en tu teléfono, la aplicación está disponible para las principales tiendas de aplicaciones:</value>
   </data>
   <data name="NoOptionDisplayName" xml:space="preserve">
     <value>No</value>

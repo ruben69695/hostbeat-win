@@ -10,15 +10,39 @@
 
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <RichTextBlock Name="aboutText" Grid.Row="0" TextWrapping="Wrap" />
-        <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="5" Margin="0,10,0,10" HorizontalAlignment="Center">
-            <HyperlinkButton x:Uid="HyperlinkWin" NavigateUri="https://github.com/ruben69695/hostbeat-win"/>
-            <HyperlinkButton x:Uid="HyperlinkCli" NavigateUri="https://github.com/ruben69695/hostbeat-cli"/>
+        
+        <Grid Grid.Row="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <RichTextBlock Name="aboutText" Grid.Row="0" TextWrapping="Wrap" />
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Spacing="5" Margin="0,10,0,10" HorizontalAlignment="Left">
+                <HyperlinkButton x:Uid="HyperlinkWin" NavigateUri="https://github.com/ruben69695/hostbeat-win"/>
+                <HyperlinkButton x:Uid="HyperlinkWebProject" NavigateUri="https://ruben69695.github.io/hostbeat-web/"/>
+            </StackPanel>
+            <TextBlock Grid.Row="2" x:Uid="MobileAppInfo" TextWrapping="Wrap" Margin="0 30 0 0"/>
+            <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0 20 0 0">
+                <HyperlinkButton NavigateUri="https://play.google.com/store/apps/details?id=pro.rubenarrebola.hostbeat">
+                    <HyperlinkButton.Content>
+                        <Image Source="/Assets/playstore.png" Width="165" />
+                    </HyperlinkButton.Content>
+                </HyperlinkButton>
+                <HyperlinkButton NavigateUri="https://apps.apple.com/us/app/hostbeat/id1673592541">
+                    <HyperlinkButton.Content>
+                        <Image Source="/Assets/appstore.png" Width="150" />
+                    </HyperlinkButton.Content>
+                </HyperlinkButton>
+            </StackPanel>
+        </Grid>
+        <StackPanel Grid.Row="1" Height="auto" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0 0 0 10" >
+            <TextBlock Name="versionLabel" Text="Hostbeat Client 1.2.0+0" FontWeight="SemiBold" HorizontalAlignment="Center" />
+            <TextBlock x:Uid="MadeBy" Margin="0 5 0 0" HorizontalAlignment="Center" FontWeight="SemiBold" />
         </StackPanel>
-        <RichTextBlock Name="madeByText" Grid.Row="2" TextWrapping="Wrap" Margin="0,15,0,25" HorizontalAlignment="Center" />
     </Grid>
 </Page>
