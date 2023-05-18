@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AboutApp" xml:space="preserve">
-    <value>Este es un programa creado con la idea principal de enviar latidos a la plataforma hostbeat y poder ser notificado a través de la aplicación móvil cuando el host se desconecte de Internet o se apague. También hay un cliente de línea de comandos disponible para Mac y Linux. Puede echar un vistazo al código fuente del cliente o al sitio web del proyecto utilizando los siguientes botones de enlace:</value>
+    <value>Este es un programa creado con la idea principal de enviar latidos a la plataforma hostbeat y poder ser notificado a través de la aplicación móvil cuando el host se desconecte de Internet o se apague. También hay un cliente de línea de comandos disponible para Mac y Linux. Puedes echar un vistazo al código fuente del cliente o al sitio web del proyecto utilizando los siguientes botones de enlace:</value>
   </data>
   <data name="AboutTab.Content" xml:space="preserve">
     <value>Acerca de</value>
