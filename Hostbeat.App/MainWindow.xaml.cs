@@ -1,7 +1,6 @@
 using Hostbeat.Core.Enums;
 using Hostbeat.Core.Interfaces;
 using Hostbeat.Pages;
-using Hostbeat.Services;
 using Microsoft.UI;
 using Microsoft.UI.Composition;
 using Microsoft.UI.Composition.SystemBackdrops;
@@ -71,7 +70,8 @@ public sealed partial class MainWindow : Window
 
     private void MinimizeWindow(AppWindow window)
     {
-        ((OverlappedPresenter)window.Presenter).Minimize();
+        var hWnd = WindowNative.GetWindowHandle(this);
+        PInvoke.User32.ShowWindow(hWnd, PInvoke.User32.WindowShowStyle.SW_MINIMIZE);
     }
 
     private void CenterWindowInScreen(AppWindow window)

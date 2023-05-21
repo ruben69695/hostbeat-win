@@ -57,6 +57,7 @@
     <PackageReference Include="Microsoft.WindowsAppSDK" Version="1.2.221109.1" />
     <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.22621.755" />
     <Manifest Include="$(ApplicationManifest)" />
+    <PackageReference Include="PInvoke.User32" Version="0.7.124" />
   </ItemGroup>
 
   <!-- 
